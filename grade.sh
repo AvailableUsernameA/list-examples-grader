@@ -12,6 +12,7 @@ then
     echo $?
 else
     echo "ListExamples.java doesn't exist"
+    echo "score: 0"
     exit 1
 fi
 
@@ -26,8 +27,15 @@ then
 else
     echo "compile failed"
     cat compError.txt
+    echo "score: 0"
     exit 1
 fi 
 
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples 1>codeError.txt
-java -cp $CPATH GradeServer 2022
+cat codeError.txt
+#java -cp $CPATH GradeServer 3456
+
+#NUMBEROFERROR= grep -o "E" codeError.txt|wc -l how to minus in sh?
+#echo 2-$NUMBEROFERROR
+
+java -cp $CPATH GradeServer 6543

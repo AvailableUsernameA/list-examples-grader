@@ -36,6 +36,7 @@ class Handler implements URLHandler {
            String[] parameters = url.getQuery().split("=");
            if (parameters[0].equals("repo")) {
                return ExecHelpers.exec(new String[]{"bash", "grade.sh", parameters[1]});
+               //parameter[1]--the student submission
            }
            else {
                return "Couldn't find query parameter repo";
