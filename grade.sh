@@ -2,16 +2,17 @@
 
 #set -e
 
+totalScore=2
 CPATH=".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:student-submission/"
 
 rm -rf student-submission
 git clone $1 student-submission
 
-if [[ -f student-submission/ListExamples.java ]]
+if [[ -e student-submission/ListExamples.java ]]
 then
     echo $?
 else
-    echo "ListExamples.java doesn't exist"
+    echo "Can't find your file"
     echo "score: 0"
     exit 1
 fi
@@ -32,10 +33,21 @@ else
 fi 
 
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples 1>codeError.txt
-cat codeError.txt
-#java -cp $CPATH GradeServer 3456
+#echo $?
+if [[ $(grep -c "testMerge(TestListExamples)" codeError.txt) -eq 1 ]]
+then 
+    ((totalScore-=1))
+    echo "testMerge fails"
+else
+    echo "pass testMerge"
+fi
 
-#NUMBEROFERROR= grep -o "E" codeError.txt|wc -l how to minus in sh?
-#echo 2-$NUMBEROFERROR
+if [[ $(grep -c "testFilter(TestListExamples)" codeError.txt) -eq 1 ]]
+then 
+    ((totalScore-=1))
+    echo "testFilter fails"
+else
+    echo "pass testFilter"
+fi
 
-java -cp $CPATH GradeServer 6543
+echo Score: $totalScore/2
