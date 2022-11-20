@@ -62,14 +62,18 @@ This is the screenshot for http://localhost:3456/grade?repo=https://github.com/u
 This is the screenshot for http://localhost:3456/grade?repo=https://github.com/ucsd-cse15l-f22/list-methods-lab3. It says that there are two test failures leading it to get 0.
 
 ## trace
-For\
-totalScore=2\
-CPATH=".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:student-submission/"\
+For
+~~~
+totalScore=2
+CPATH=".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:student-submission/"
+~~~
 two variables are created. They both have return codes as zero.
 
-For\
-rm -rf student-submission\
-git clone $1 student-submission\
+For
+~~~
+rm -rf student-submission
+git clone $1 student-submission
+~~~
 things stored in https://github.com/ucsd-cse15l-f22/list-methods-lab3 is clone to the local computer and it the standard output is Cloning into 'student-submission'.... The return code is zero here.
 
 For
