@@ -33,7 +33,6 @@ else
 fi 
 
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples 1>codeError.txt
-#echo $?
 if [[ $(grep -c "testMerge(TestListExamples)" codeError.txt) -eq 1 ]]
 then 
     ((totalScore-=1))

@@ -1,10 +1,15 @@
 JUnit version 4.13.2
 .E.E
-Time: 0.194
+Time: 0.201
 There were 2 failures:
 1) testMerge(TestListExamples)
 org.junit.runners.model.TestTimedOutException: test timed out after 100 milliseconds
-	at app//ListExamples.merge(ListExamples.java:43)
+	at java.base@18/java.util.Arrays.copyOf(Arrays.java:3481)
+	at java.base@18/java.util.ArrayList.grow(ArrayList.java:237)
+	at java.base@18/java.util.ArrayList.grow(ArrayList.java:244)
+	at java.base@18/java.util.ArrayList.add(ArrayList.java:454)
+	at java.base@18/java.util.ArrayList.add(ArrayList.java:467)
+	at app//ListExamples.merge(ListExamples.java:42)
 	at app//TestListExamples.testMerge(TestListExamples.java:23)
 	at java.base@18/java.lang.invoke.LambdaForm$DMH/0x0000000800c12400.invokeVirtual(LambdaForm$DMH)
 	at java.base@18/java.lang.invoke.LambdaForm$MH/0x0000000800c13000.invoke(LambdaForm$MH)
