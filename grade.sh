@@ -18,7 +18,7 @@ else
 fi
 
 touch student-submission/ListExamples.java
-mv student-submission/ListExamples.java .
+mv student-submission/ListExamples.java . 
 
 javac -cp $CPATH TestListExamples.java 2>compError.txt
 
